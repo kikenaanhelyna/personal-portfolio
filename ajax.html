@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Store</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="custom-cursor" id="cc-dom"></div>
+    <section class="section hero">
+    <div class="container">
+      <h1 class="reveal">Ajax Page</h1>
+          </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="reveal">AJAX: demonstrate AJAX - The XMLHttpRequest Object</h2>
+      <h2><p id="demo">AJAX response from the server</p></h2> 
+    <button type="button" id="toggleBtn" onclick="loadText()">Load Text</button> 
+    <p id="emailMsg"></p>
+    </div>    
+</section>
+
+  <section class="section">
+    <div class="container">
+    <h1>AJAX: demonstrate GET and POST</h1>
+    <h2>Method: POST an email to database</h2>
+<input type="email" id="email">
+<p id="message"></p>
+<button onclick="saveEmail()">Save Email To Database</button>
+<hr style="border: 1px solid black; width: 100%; margin: 20px 0;">
+
+ <h2>Method: GET an email from database</h2>
+<input type="email" id="emailcheck">
+<p id="m"></p>
+<button onclick="checkEmail()">Get Email From The Database</button>
+<hr style="border: 1px solid black; width: 100%; margin: 20px 0;">
+<div class="custom-cursor" id="cc-dom"></div>
+</div>
+</section>
+
+<section class="projects">
+
+  <div class="projects-sticky">
+    <div class="projects-track">
+
+        <div class="project panel">
+        <h3>Home Page</h3>
+        <a href="./index.html">View</a>
+      </div>
+
+      <div class="project panel">
+        <h3>Resume Website</h3>
+        <a href="./ResumeDownLoad.html">View</a>
+      </div>
+
+      <div class="project panel">
+        <h3>WordPress Website</h3>
+        <a href="https://internmentmuseum.ca">View</a>
+      </div>
+
+      <div class="project panel">
+        <h3>COSC Lab</h3>
+        <a href="./COSCLAB.html">View</a>
+      </div>
+
+      <div class="project panel">
+        <h3>Rock Paper Scissors</h3>
+        <a href="./r_s_p_game.html">Play</a>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<script>
+ 
+
+    let isOpen = false;
+    function loadText() { 
+        isOpen = !isOpen;    
+    const btn = document.getElementById("toggleBtn");
+    if (isOpen) {
+        btn.innerText = "Close Text";
+        var xhttp = new XMLHttpRequest(); 
+        xhttp.onload = function() { document.getElementById("demo").innerHTML 
+        = this.responseText; }; 
+        xhttp.open("GET", "ajax_info.txt", true);
+        xhttp.send(); 
+    } else {
+        btn.innerText = "Load Text";
+        document.getElementById("demo").innerHTML = "";
+    }
+}
+
+
+        
+function saveEmail() {
+    const email = document.getElementById("email").value;
+
+    const formData = new FormData();
+    formData.append("email", email);
+
+    fetch("store.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(r => r.text())
+    .then(data => {
+        document.getElementById("message").innerHTML = data;
+        loadEmails();
+    })
+     .catch(err => {
+        console.error("Save error:", err);
+    });
+}
+
+function checkEmail() {
+    const emailcheck = document.getElementById("emailcheck").value;
+    const m = document.getElementById("m");
+    m.innerHTML = "Checking...";
+    const formData = new FormData();
+    formData.append("emailcheck", emailcheck);
+
+    fetch("check.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(r => r.text())
+    .then(data => {
+        m.innerHTML = data;
+    });
+}
+
+ const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+  const triggerBottom = window.innerHeight * 0.85;
+
+  reveals.forEach(el => {
+    const rect = el.getBoundingClientRect();
+
+    if (rect.top < triggerBottom) {
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+const track = document.querySelector(".projects-track");
+const section = document.querySelector(".projects");
+
+window.addEventListener("scroll", () => {
+  const rect = section.getBoundingClientRect();
+  const scrollProgress = -rect.top / (rect.height - window.innerHeight);
+
+  const maxTranslate = track.scrollWidth - window.innerWidth;
+
+  if (scrollProgress >= 0 && scrollProgress <= 1) {
+    track.style.transform = `translateX(-${scrollProgress * maxTranslate}px)`;
+  }
+});
+const cursor = document.getElementById("cc-dom");
+
+document.addEventListener("mousemove", function(e) {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+});
+</script>
+
+</body>
+</html>
+
