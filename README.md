@@ -44,7 +44,7 @@ Password: root
 Database name: mydb
 
 ##### 1.1.1 Import the tables
-docker exec -i your_db_container_name mysql -u root -proot mydb < table.sql
+docker exec -i your_db_container_name mysql -u root -proot mydb < database.sql
 
 ### 2. Start containers
 `bash
