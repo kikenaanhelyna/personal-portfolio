@@ -1,20 +1,41 @@
-# My Website
+# Personal Portfolio Website
 
-This is a simple web application built with PHP, MySQL, and Docker.  
-It runs in a containerized environment using Docker Compose.
+A responsive personal portfolio website developed with PHP, MySQL, HTML, CSS, JavaScript, and Docker. The application demonstrates full-stack web development skills, database integration, and containerized deployment.
 
-## Tech Stack
-- PHP 8.2 (Apache)
-- MySQL 8
-- Docker & Docker Compose
-- HTML / CSS / JavaScript
+## Features
+Responsive user interface
+PHP backend
+MySQL database integration
+Docker Compose environment
+Dynamic content rendering
+Clean and organized project structure
 
+## Technologies
+PHP 8.2
+MySQL 8
+HTML5
+CSS3
+JavaScript
+Docker
+Docker Compose
+Apache
 
-## Run
+## What I Learned
+
+During this project I gained practical experience with:
+
+Building a PHP web application
+Connecting PHP to a MySQL database
+Working with Docker containers
+Creating and importing SQL databases
+Organizing a full-stack project
+Using Git and GitHub for version control
+
+## Getting Started
 
 ### 1. Clone the repository
-git clone https://github.com/Anhelyna/my-working-website.git
-cd my-working-website
+git clone https://github.com/Anhelyna/personal-portfolio.git
+cd personal-portfolio
 
 #### 1.1 This project uses a MySQL database.
 Host: db
@@ -40,29 +61,3 @@ Runs on port: 8080
 ### Database (MySQL)
 Runs on port: 3306
 
-## Programming Examples
-
-This repository includes selected examples of my work in:
-
-### **Assembly Language**  
-Low-level programming, memory operations, and system-level logic  
-
-### **C Programming**  
-Systems programming, process management (fork, pipes), and parallel/concurrent computation. Includes lab work focused on low-level problem solving and performance-oriented design.  
-
-### **C++**  
-Object-oriented and procedural programming, memory management, and performance-focused applications 
-
-### **C#**  
-Application development using .NET, including GUI-based projects and object-oriented design
-
-### **Java**  
-Object-oriented programming, data structures, and application development  
-
-### **SQL**  
-Database design, querying, data manipulation, and relational database management
-
-### **R5RS (Scheme)**  
-Functional programming concepts, recursion, and symbolic computation  
-
-All projects were completed as part of my academic coursework, including lab assignments and practical implementations.
