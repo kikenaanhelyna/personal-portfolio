@@ -61,3 +61,25 @@ Runs on port: 8080
 ### Database (MySQL)
 Runs on port: 3306
 
+## Screenshots
+
+### Home Page
+
+![Home Page](screenshots/home-page.png)
+
+### WordPress Website
+
+![WordPress](screenshots/wordpress-home.png)
+
+### Rock Paper Scissors Game
+
+![Game](screenshots/rock-paper-scissors.png)
+
+### AJAX Demo
+
+![AJAX](screenshots/ajax-demo.png)
+
+### Form Validation
+
+![Validation](screenshots/form-validation.png)
+
